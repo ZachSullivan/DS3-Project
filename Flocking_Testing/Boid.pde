@@ -50,6 +50,14 @@ class Boid {
     applyForce(sep);
     applyForce(ali);
     applyForce(coh);
+    
+    if(mousePressed){
+      PVector mouseTarget = new PVector(mouseX, mouseY, 0);
+      PVector ste = seek(mouseTarget);
+      applyForce(ste);
+    }
+            
+
   }
 
   // Method to update location
@@ -61,6 +69,9 @@ class Boid {
     location.add(velocity);
     // Reset accelertion to 0 each cycle
     acceleration.mult(0);
+    
+    
+    
   }
 
   // A method that calculates and applies a steering force towards a target

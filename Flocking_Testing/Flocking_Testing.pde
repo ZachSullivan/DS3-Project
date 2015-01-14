@@ -5,7 +5,7 @@ void setup() {
   size(640, 360);
   flock = new Flock();
   // Add an initial set of boids into the system
-  for (int i = 0; i < 150; i++) {
+  for (int i = 0; i < 500; i++) {
     flock.addBoid(new Boid(width/2,height/2));
   }
 }
