@@ -16,6 +16,7 @@ void draw() {
 }
 
 // Add a new boid into the System
-void mousePressed() {
+//Removed ability to spawn more then the starting number of boids
+/*void mousePressed() {
   flock.addBoid(new Boid(mouseX,mouseY));
-}
+}*/

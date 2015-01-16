@@ -51,11 +51,7 @@ class Boid {
     applyForce(ali);
     applyForce(coh);
     
-    if(mousePressed){
-      PVector mouseTarget = new PVector(mouseX, mouseY, 0);
-      PVector ste = seek(mouseTarget);
-      applyForce(ste);
-    }
+    
             
 
   }
@@ -70,7 +66,11 @@ class Boid {
     // Reset accelertion to 0 each cycle
     acceleration.mult(0);
     
-    
+    if(mousePressed){
+      PVector mouseTarget = new PVector(mouseX, mouseY, 0);
+      PVector ste = seek(mouseTarget);
+      applyForce(ste);
+    }
     
   }
 
