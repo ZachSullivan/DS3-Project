@@ -27,7 +27,7 @@ class Boid {
 
   void run(ArrayList<Boid> boids) {
     flock(boids);
-    update();
+    update(boids);
     borders();
     render();
   }
@@ -57,7 +57,7 @@ class Boid {
   }
 
   // Method to update location
-  void update() {
+  void update(ArrayList<Boid> boids) {
     // Update velocity
     velocity.add(acceleration);
     // Limit speed
@@ -67,11 +67,22 @@ class Boid {
     acceleration.mult(0);
     
     if(mousePressed){
-      PVector mouseTarget = new PVector(mouseX, mouseY, 0);
-      PVector ste = seek(mouseTarget);
-      applyForce(ste);
-    }
-    
+      //Attract Boids towards the mouse
+      if(mouseButton == RIGHT){
+        PVector mouseTarget = new PVector(mouseX, mouseY, 0);
+        PVector ste = seek(mouseTarget);
+        ste.mult(2);
+        applyForce(ste);
+      }
+      //Separate the Boids away from mouse
+      if(mouseButton == LEFT){
+        PVector mouseTarget = new PVector(mouseX, mouseY, 0);
+        PVector ste = seek(mouseTarget);
+        ste.mult(-2);
+        applyForce(ste);
+      }
+    } 
+      //return null;
   }
 
   // A method that calculates and applies a steering force towards a target
