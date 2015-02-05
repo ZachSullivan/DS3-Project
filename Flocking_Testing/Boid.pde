@@ -6,15 +6,24 @@ class Boid {
   PVector velocity;
   PVector acceleration;
   float r;
+  int colR, colG, colB;
   float maxforce;    // Maximum steering force
-  float maxspeed;    // Maximum speed
+  float maxspeed;   // Maximum speed
+  
+  boolean whiteBoid;
 
-    Boid(float x, float y) {
+    Boid(float x, float y, int i) {
     acceleration = new PVector(0, 0);
-
+    colR = (int) random(255);
+    colG = (int) random(255);
+    colB = (int) random(255);
     // This is a new PVector method not yet implemented in JS
     // velocity = PVector.random2D();
-
+    if ( i == 0 )
+        whiteBoid = true;
+    else 
+        whiteBoid = false;
+        
     // Leaving the code temporarily this way so that this example runs in JS
     float angle = random(TWO_PI);
     velocity = new PVector(cos(angle), sin(angle));
@@ -109,7 +118,11 @@ class Boid {
     // heading2D() above is now heading() but leaving old syntax until Processing.js catches up
     
     fill(200, 100);
-    stroke(255);
+    if( whiteBoid )
+      stroke(255);
+    else
+      stroke(colR,colG,colB);
+    
     pushMatrix();
     translate(location.x, location.y);
     rotate(theta);
@@ -207,7 +220,7 @@ class Boid {
     int count = 0;
     for (Boid other : boids) {
       float d = PVector.dist(location, other.location);
-      if ((d > 0) && (d < neighbordist)) {
+      if ((d > 0) && (d < neighbordist) ) {
         sum.add(other.location); // Add location
         count++;
       }
