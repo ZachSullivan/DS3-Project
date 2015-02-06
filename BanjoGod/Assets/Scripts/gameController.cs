@@ -3,16 +3,36 @@ using System.Collections;
 
 public class gameController : MonoBehaviour {
 
-	public int arduino1, arduino2; 
+	/**
+	 * 
+	 * 
+	 * 
+	 * */
+
+	public int arduino1, arduino2; // Arduino Input Values ( this will come from the inputController file later )
+
+	// Rain and Temperature Levels
 	public int rainLevel;
 	public float temperatureLevel;
+
+	// newInput boolean for testing purposes
 	public bool newInput = false;
+
+	// DecrementBuffer to make simulation more readable in testing 
 	public int decrementBuffer = 0;
+
+	// Amplitude Variables for Temperature Fluctuation
 	public int amplitude = 30;
 	public int targetAmplitude;
+
+	// This version of the simulation runs based on frame count rather than actual time, as such a time index is created to monitor time
 	public int timeIndex = 0;
+
+
 	// Use this for initialization
 	void Start () {
+
+		// Initialization
 		rainLevel = 0;
 		temperatureLevel = 0.0f;
 		arduino1 = 0;
@@ -21,6 +41,9 @@ public class gameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+		// Simulation Loop
+
 		bool buffered;
 
 		if (decrementBuffer == 0)
@@ -28,9 +51,13 @@ public class gameController : MonoBehaviour {
 		else
 			buffered = false;
 
+		// Call functions related to individual simulation elements
+		// These will be adapted into their own scripts when they become more complex
 		rainUpdate (buffered);
 		temperatureUpdate (buffered);
 
+
+		// Buffer Management
 		if( buffered )
 			decrementBuffer = 59;
 		else 
@@ -41,7 +68,7 @@ public class gameController : MonoBehaviour {
 	}
 
 	void temperatureUpdate(bool buffered){
-
+		// Temerature State Machine
 		int period = 60 * 60;
 
 		if (timeIndex == (60 * 60) )
@@ -69,12 +96,13 @@ public class gameController : MonoBehaviour {
 		}
 
 
-
+		// Temperature is a sinosodal relationship. User effects Amplitude of wave
 		temperatureLevel = amplitude * Mathf.Sin ( ( 2*Mathf.PI / Mathf.Abs(period) ) * ( timeIndex ) );
 
 	}
 
 	void rainUpdate(bool buffered){
+		// Rain State Machine
 
 		if (buffered)
 			rainLevel--;
