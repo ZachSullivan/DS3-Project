@@ -41,8 +41,8 @@
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
+'Assets/Scripts/charController.cs'
 'Assets/Scripts/gameController.cs'
 'Assets/Scripts/inputController.cs'
-'Assets/charController.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

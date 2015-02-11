@@ -12,7 +12,7 @@ public class charController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		navComponent = this.transform.gameObject.GetComponent<NavMeshAgent>();
-		targetPos = new Vector3 ( (float) Random.Range (-4, 4), 0.25f, (float) Random.Range (-2, 2));
+		targetPos = new Vector3 ( (float) Random.Range (-5, 5), 0.3499999f, (float) Random.Range ((float)-2.75, (float)-1.75));
 		Instantiate (targetNode, targetPos, Quaternion.identity);
 
 	}
@@ -26,9 +26,9 @@ public class charController : MonoBehaviour {
 
 		}
 
-		if ( Vector3.Distance(targetPos, this.transform.position) <= 0.5f ) {
+		if ( Vector3.Distance(targetPos, this.transform.position) <= 0.5) {
 			targetReached = true;
-			targetPos = new Vector3 ( (float) Random.Range (-4, 4), 0.25f, (float) Random.Range (-2, 2));
+			targetPos = new Vector3 ( (float) Random.Range (-5, 5), 0.3499999f, (float) Random.Range ((float)-2.75, (float)-1.75));
 			targetNode.transform.position = targetPos;
 
 		}
