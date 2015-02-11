@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using System.IO.Ports;
+using System.IO.Ports;
 
 public class inputController : MonoBehaviour {
 
@@ -9,33 +9,33 @@ public class inputController : MonoBehaviour {
 	COMMENT OUT ALL ARDUINO RELATED CODE IN THE EVENT OF TESTING
 	*/
 	// Serial Port Global Variables and Declaration
-	/**
-	SerialPort sp = new SerialPort("/dev/tty.usbmodemfa131", 9600 );
+
+	SerialPort sp = new SerialPort("/dev/tty.usbmodemfd121", 9600 );
 	public int readValue = 0;
 	public int lastReadValue = 0;
 	public GameObject cubeObject;
-	**/
+
+	public gameController gameController;
+
 	// Use this for initialization
 	void Start () {
 		// Serial Port initialization
-		/**
 		sp.Open();
 		sp.ReadTimeout = 1;
-		**/
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Update function that checks for input from the serial ports
-		/**
 		if (sp.IsOpen) {
 			try {
 				readValue = int.Parse ( sp.ReadLine() );
-				if( readValue > 600 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
+				if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
 					Debug.Log ( readValue );
 					if( lastReadValue - readValue >=  5){
-						createCube(lastReadValue - readValue);
+						gameController.arduino1 = readValue;
 					}
 					lastReadValue = readValue;
 
@@ -47,7 +47,6 @@ public class inputController : MonoBehaviour {
 				//Debug.Log ( "Error: System Exception Caught" );
 			}
 		}
-		**/
 	}
 	void createCube( int numCubes ){
 		// Cube creation for testing purposes
