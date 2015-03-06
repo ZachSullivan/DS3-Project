@@ -1,0 +1,575 @@
+fileFormatVersion: 2
+guid: 87231c5cfd70e46a3806bf8ddf62b0c6
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Bird Animation_0
+    21300002: Bird Animation_1
+    21300004: Bird Animation_2
+    21300006: Bird Animation_3
+    21300008: Bird Animation_4
+    21300010: Bird Animation_5
+    21300012: Bird Animation_6
+    21300014: Bird Animation_7
+    21300016: Bird Animation_8
+    21300018: Bird Animation_9
+    21300020: Bird Animation_10
+    21300022: Bird Animation_11
+    21300024: Bird Animation_12
+    21300026: Bird Animation_13
+    21300028: Bird Animation_14
+    21300030: Bird Animation_15
+    21300032: Bird Animation_16
+    21300034: Bird Animation_17
+    21300036: Bird Animation_18
+    21300038: Bird Animation_19
+    21300040: Bird Animation_20
+    21300042: Bird Animation_21
+    21300044: Bird Animation_22
+    21300046: Bird Animation_23
+    21300048: Bird Animation_24
+    21300050: Bird Animation_25
+    21300052: Bird Animation_26
+    21300054: Bird Animation_27
+    21300056: Bird Animation_28
+    21300058: Bird Animation_29
+    21300060: Bird Animation_30
+    21300062: Bird Animation_31
+    21300064: Bird Animation_32
+    21300066: Bird Animation_33
+    21300068: Bird Animation_34
+    21300070: Bird Animation_35
+    21300072: Bird Animation_36
+    21300074: Bird Animation_37
+    21300076: Bird Animation_38
+    21300078: Bird Animation_39
+    21300080: Bird Animation_40
+    21300082: Bird Animation_41
+    21300084: Bird Animation_42
+    21300086: Bird Animation_43
+    21300088: Bird Animation_44
+    21300090: Bird Animation_45
+    21300092: Bird Animation_46
+    21300094: Bird Animation_47
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Bird Animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_3
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_4
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_5
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_6
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_7
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_8
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_9
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_10
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 300
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_13
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_14
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_15
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_16
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_17
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_18
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_19
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_20
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_21
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_22
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_23
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 200
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_25
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_26
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_27
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_28
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_29
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_30
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_31
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_32
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_33
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_34
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_35
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 100
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_37
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_38
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_39
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_40
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_41
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_42
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_43
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_44
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_45
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_46
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Bird Animation_47
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 0
+        width: 99
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

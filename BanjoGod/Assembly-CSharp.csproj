@@ -46,8 +46,11 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BirdChildController.cs" />
+     <Compile Include="Assets\BirdController.cs" />
      <Compile Include="Assets\Scripts\charController.cs" />
      <Compile Include="Assets\Scripts\gameController.cs" />
+     <Compile Include="Assets\Scripts\gameController_ZachRainRevision.cs" />
      <Compile Include="Assets\Scripts\inputController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
