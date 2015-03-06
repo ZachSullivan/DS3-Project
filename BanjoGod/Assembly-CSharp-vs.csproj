@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\BirdChildController.cs" />
+     <Compile Include="Assets\BirdController.cs" />
      <Compile Include="Assets\Scripts\charController.cs" />
      <Compile Include="Assets\Scripts\gameController.cs" />
      <Compile Include="Assets\Scripts\gameController_ZachRainRevision.cs" />
