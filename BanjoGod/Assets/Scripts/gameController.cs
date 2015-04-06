@@ -9,7 +9,20 @@ public class gameController : MonoBehaviour {
 	 * 
 	 * */
 
-	public int arduino1, arduino2; // Arduino Input Values ( this will come from the inputController file later )
+	public int arduino1;
+	public int arduino2; 
+	public int arduino3; // Arduino Input Values ( this will come from the inputController file later )
+
+
+	public delegate void CollectionEvent();
+	public static event CollectionEvent balloonEvent;
+	public static event CollectionEvent featherEvent;
+	public static event CollectionEvent generatorEvent;
+	public static event CollectionEvent takeOffEvent;
+	
+	public bool balloon, feather, generator;
+
+	public bool bird, crops, lightning;
 
 	// Rain and Temperature Levels
 	public int rainLevel;
@@ -28,11 +41,31 @@ public class gameController : MonoBehaviour {
 
 	// This version of the simulation runs based on frame count rather than actual time, as such a time index is created to monitor time
 	public int timeIndex = 0;
+	
+	//Variable used to define the transision speed between raining and snowing
+	public int transisionSpeed;
 
-
-	//Emission source for rain system
+	//Emission source for rain system//Emission source for rain system
 	public GameObject RainSystem;
 	public GameObject SpitSystem;
+	public GameObject SnowSystem;
+	
+	public GameObject DefaultBG;
+	public GameObject LightRainBG;
+	public GameObject MedRainBG;
+	public GameObject HeavyRainBG;
+	
+	
+	public Material material1;
+	public Material material2;
+	
+	public GameObject cropsObject;
+	
+	Animator anim;
+	
+	bool isWinter;
+
+	public GameObject birdObject;
 
 	//Old rain emission system
 	//public ParticleSystem rainSystem;
@@ -48,6 +81,14 @@ public class gameController : MonoBehaviour {
 		temperatureLevel = 0.0f;
 		arduino1 = 0;
 		arduino2 = 0;
+		arduino3 = 0;
+		
+		transisionSpeed = 200;
+		
+		isWinter = false;
+
+		RainSystem.GetComponent<Renderer> ().sortingLayerName = "front";
+		SnowSystem.GetComponent<Renderer> ().sortingLayerName = "front";
 	}
 	
 	// Update is called once per frame
@@ -56,6 +97,8 @@ public class gameController : MonoBehaviour {
 		bool buffered;
 
 		if (arduino1 > 0)
+			newInput = true;
+		if (arduino2 > 0)
 			newInput = true;
 
 		if (decrementBuffer == 0)
@@ -67,8 +110,8 @@ public class gameController : MonoBehaviour {
 		// These will be adapted into their own scripts when they become more complex
 		rainUpdate (buffered);
 		temperatureUpdate (buffered);
-
-
+		windUpdate (buffered);
+		cropGrowth(buffered);
 
 		// Buffer Management
 		if( buffered )
@@ -78,95 +121,273 @@ public class gameController : MonoBehaviour {
 
 		if (newInput)
 			newInput = false;
+
+
+		if (crops == true && windLevel >= 500) {
+			Instantiate (birdObject, new Vector3( 10, 0 ,(float) Random.Range(0,4)), Quaternion.identity );
+			bird = true;
+			windLevel -= 50;
+		}
+
+		
+		if (temperatureLevel <= -10 && rainLevel >= 50 && balloon == false) {
+			balloonEvent();
+			balloon = true;
+		}
+		if (temperatureLevel >= 30 &&  rainLevel >= 500 && generator == false) {
+			generatorEvent();
+			generator = true;
+		}
+		if (bird == true && crops == true && feather == false ) {
+			featherEvent();
+			feather = true;
+		}
+		if (balloon == true && generator == true && feather == true) {
+			takeOffEvent();
+			balloon = false;
+			generator = false;
+			feather = false;
+		}
+	}
+
+	void cropGrowth(bool buffered){
+		
+		if(temperatureLevel >= 15 && (rainLevel > 50 )){
+			//Debug.Log("Crop Spawned");
+			cropsObject.GetComponent<Animator>().SetBool("isGrowing", true);
+			crops = true;
+		}
 	}
 
 	void temperatureUpdate(bool buffered){
 		// Temerature State Machine
 		int period = 60 * 60;
-
+		
 		if (timeIndex == (60 * 60) )
 			timeIndex = 0;
 		else
 			timeIndex++;
-
+		
 		if( buffered ){
 			amplitude--;
-
+			
 			if (amplitude < 30)
 				amplitude = 30;
-
+			
 			if (amplitude < targetAmplitude) {
 				amplitude += 2;
 			} else {
 				targetAmplitude = 0;
 			}
 		}
-
-
+		
+		
 		if (newInput) {
-			targetAmplitude = arduino2;
+			targetAmplitude = arduino3;
+			arduino3 = 0;
+		}
+		
+		
+		// Temperature is a sinosodal relationship. User effects Amplitude of wave
+		temperatureLevel = amplitude * Mathf.Sin ( ( 2 * Mathf.PI / Mathf.Abs(period) ) * ( timeIndex ));
+		
+		if (temperatureLevel <= -0) {
+			
+			isWinter = true;
+			
+			//SnowSystem.SetActive(true);
+			if(SnowSystem.GetComponent<ParticleEmitter>().maxEmission < rainLevel){
+				SnowSystem.GetComponent<ParticleEmitter>().maxEmission += Time.deltaTime * transisionSpeed;
+			} else {
+				SnowSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				//Do Nothing
+			}
+			
+			if(RainSystem.GetComponent<ParticleEmitter>().maxEmission != 0){
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission -= Time.deltaTime * transisionSpeed;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission -= Time.deltaTime * transisionSpeed;
+			} else {
+				//Do Nothing
+			}
+		}
+		
+		if (temperatureLevel >= 1) {
+			//SnowSystem.SetActive(true);
+			if(RainSystem.GetComponent<ParticleEmitter>().maxEmission < rainLevel){
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission += Time.deltaTime * transisionSpeed;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission -= Time.deltaTime * transisionSpeed;
+			} else {
+				isWinter = false;
+				//System.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				//Do Nothing
+			}
+			
+			if(SnowSystem.GetComponent<ParticleEmitter>().maxEmission != 0){
+				SnowSystem.GetComponent<ParticleEmitter>().maxEmission -= Time.deltaTime * transisionSpeed;
+			} else {
+				//SnowSystem.SetActive(false);
+				//Do Nothing
+			}
+			
+		}
+		
+
+
+	}
+
+	void windUpdate(bool buffered){
+		
+		//Save the original particle velocity so that we can assign a new wind velocity later
+		Vector3 originalVelocity = RainSystem.GetComponent<ParticleEmitter>().localVelocity;
+		
+		if (buffered) {
+			windLevel--;
+		}
+		
+		if (windLevel < 0) {
+			windLevel = 0;		
+		}
+		
+		if (newInput) {
+			windLevel += arduino2;	
 			arduino2 = 0;
 		}
+		
+		int windState = 0;
 
+		cropsObject.GetComponent<Animator>().SetFloat("WindLevel", windLevel);
 
-		// Temperature is a sinosodal relationship. User effects Amplitude of wave
-		temperatureLevel = amplitude * Mathf.Sin ( ( 2*Mathf.PI / Mathf.Abs(period) ) * ( timeIndex ) );
-
+		//Intesity of wind is based on a scale value, if the windLevel is between an arbitrary value of > 90 then a heavy wind will be applied to the rain
+		if (windLevel > 90)
+			windState = 3;
+		else if (windLevel > 50)
+			windState = 2;
+		else if (windLevel > 0)
+			windState = 1;
+		
+		
+		if(buffered){
+			switch (windState){
+			case 0:
+				//Debug.Log ("No Wind");
+				
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3( 0 , originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3( 0 , originalVelocity.y, originalVelocity.z);
+				break;
+			case 1:
+				//Debug.Log ("Light Wind");
+				
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-5, originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-1 , originalVelocity.y, originalVelocity.z);
+				break;
+			case 2: 
+				//Debug.Log ("Medium Wind");
+				
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-10, originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-1 , originalVelocity.y, originalVelocity.z);
+				break;
+			case 3: 
+				//Debug.Log ("Heavy Wind");
+				
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-20, originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-1, originalVelocity.y, originalVelocity.z);
+				break;
+			default:
+				Debug.Log("Error: no current rain state");
+				break;
+			}
+		}
+		
+		
 	}
 
 	void rainUpdate(bool buffered){
 		// Rain State Machine
+		
+		
+		
+		/*int numP = particleSystem.particleCount;
+		ParticleSystem.Particle[] particles = new ParticleSystem.Particle[numP];
+		particleSystem.GetParticles (particles);
 
-		//if (buffered)
+		for(int i = 0; i < particles.Length; i++){
+			particles[i].velocity = new Vector3 (windLevel, 0, 0);
+
+		}*/
+		//rainEmmitter.localVelocity = new Vector3 (windLevel, 0, 0);
+		
+		if (buffered)
 			rainLevel--;
-
+		
 		if (rainLevel < 0)
 			rainLevel = 0;
-
+		
 		if ( newInput ) {
 			rainLevel += arduino1;
 			arduino1 = 0;
 		}
 		int rainState = 0;
-
-		if (rainLevel > 40)
+		
+		if (rainLevel > 500)
 			rainState = 3;
-		else if (rainLevel > 20)
+		else if (rainLevel > 200)
 			rainState = 2;
 		else if (rainLevel > 0)
 			rainState = 1;
-
-
-
-		if( buffered ){
+		
+		
+		
+		if( buffered && isWinter == false){
 			switch (rainState)
 			{
 			case 0:
-				Debug.Log ( "No Rain " );
+				//Debug.Log ( "No Rain " );
 				//rainSystem.emissionRate = rainLevel;
-
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				//SnowSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				
+				/**
+				Color noAplha = DefaultBG.GetComponent<Renderer>().material.color;
+				noAplha.a = 0.0f;
+				
+				Color alpha = DefaultBG.GetComponent<Renderer>().material.color;
+				alpha.a = 1.0f;
+				//renderer.material.color = color;
+				
+				DefaultBG.GetComponent<Renderer>().material.color = alpha;
+				LightRainBG.GetComponent<Renderer>().material.color = noAplha;
+				MedRainBG.GetComponent<Renderer>().material.color = noAplha;
+				HeavyRainBG.GetComponent<Renderer>().material.color = noAplha;
+				**/
 				break;
 			case 1:
-				Debug.Log ( "Light Rain " );
-					
+				//Debug.Log ( "Light Rain " );
+				
 				//rainSystem.emissionRate = rainLevel;
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				//SnowSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
 				break;
 			case 2: 
-				Debug.Log ( "Medium Rain ");
-
+				//Debug.Log ( "Medium Rain ");
+				
 				//rainSystem.emissionRate = rainLevel;
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				//SnowSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
 				break;
 			case 3: 
-				Debug.Log ( "Heavy Rain ");
+				//Debug.Log ( "Heavy Rain ");
 				//rainSystem.emissionRate = rainLevel;
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				//SnowSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				
+				//float lerp = Mathf.PingPong(Time.time, 2.0f) / 2.0f;
+				//DefaultBG.GetComponent<Renderer>().material.Lerp(material1, material2, lerp);
+				
 				break;
 			default:
 				Debug.Log("Error: no current rain state");

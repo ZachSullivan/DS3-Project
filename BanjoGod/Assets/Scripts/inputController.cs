@@ -31,21 +31,52 @@ public class inputController : MonoBehaviour {
 		// Update function that checks for input from the serial ports
 		if (sp.IsOpen) {
 			try {
-				readValue = int.Parse ( sp.ReadLine() );
-				if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
-					Debug.Log ( readValue );
-					if( lastReadValue - readValue >=  5){
-						gameController.arduino1 = readValue;
-					}
-					lastReadValue = readValue;
+				string charValue = sp.ReadLine();
+				//Debug.Log ( charValue );
+				if( charValue.Contains("A") ){
+					//Debug.Log ("A");
+					readValue = int.Parse ( sp.ReadLine() );
+					//readValue = int.Parse( charValue );
+					Debug.Log (readValue);
+					if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
+						Debug.Log ( readValue );
+						if( lastReadValue - readValue >=  5){
+							gameController.arduino1 = readValue;
+						}
+						lastReadValue = readValue;
 
+					}
+					else 
+						readValue = lastReadValue;
+				} else if( charValue.Contains("B") ){
+					//Debug.Log ("B");
+					//readValue = int.Parse ( sp.ReadLine() );
+					readValue = int.Parse( charValue );
+					if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
+						Debug.Log ( readValue );
+						if( lastReadValue - readValue >=  5){
+							gameController.arduino2 = readValue;
+						}
+						lastReadValue = readValue;
+						
+					}
+					else 
+						readValue = lastReadValue;
 				}
-				else 
-					readValue = lastReadValue;
 
 			} catch ( System.Exception ){
 				//Debug.Log ( "Error: System Exception Caught" );
 			}
+		}
+
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			gameController.arduino1 = 200;
+		}
+		if (Input.GetKeyDown (KeyCode.W)) {
+			gameController.arduino2 = 50;
+		}
+		if (Input.GetKeyDown (KeyCode.E)) {
+			gameController.arduino3 = 200;
 		}
 	}
 	void createCube( int numCubes ){

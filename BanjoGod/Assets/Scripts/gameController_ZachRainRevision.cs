@@ -165,28 +165,28 @@ public class gameController_ZachRainRevision : MonoBehaviour {
 				Debug.Log ( "No Rain " );
 				//rainSystem.emissionRate = rainLevel;
 
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
 				break;
 			case 1:
 				Debug.Log ( "Light Rain " );
 					
 				//rainSystem.emissionRate = rainLevel;
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
 				break;
 			case 2: 
 				Debug.Log ( "Medium Rain ");
 
 				//rainSystem.emissionRate = rainLevel;
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
 				break;
 			case 3: 
 				Debug.Log ( "Heavy Rain ");
 				//rainSystem.emissionRate = rainLevel;
-				RainSystem.particleEmitter.maxEmission = rainLevel;
-				SpitSystem.particleEmitter.maxEmission = rainLevel;
+				RainSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
+				SpitSystem.GetComponent<ParticleEmitter>().maxEmission = rainLevel;
 				break;
 			default:
 				Debug.Log("Error: no current rain state");
