@@ -12,12 +12,10 @@ public class inputController : MonoBehaviour {
 
 	SerialPort sp = new SerialPort("/dev/tty.usbmodemfd121", 9600 );
 	public int readValue = 0;
-
+	public int lastReadValue = 0;
 	public GameObject cubeObject;
 
 	public gameController gameController;
-
-	public int lastVal1, lastVal2, lastVal3;
 
 	// Use this for initialization
 	void Start () {
@@ -33,57 +31,38 @@ public class inputController : MonoBehaviour {
 		// Update function that checks for input from the serial ports
 		if (sp.IsOpen) {
 			try {
+				string charValue = sp.ReadLine();
+				//Debug.Log ( charValue );
+				if( charValue.Contains("A") ){
+					//Debug.Log ("A");
+					readValue = int.Parse ( sp.ReadLine() );
+					//readValue = int.Parse( charValue );
+					Debug.Log (readValue);
+					if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
+						Debug.Log ( readValue );
+						if( lastReadValue - readValue >=  5){
+							gameController.arduino1 = readValue;
+						}
+						lastReadValue = readValue;
 
-				readValue = int.Parse ( sp.ReadLine() );
-				Debug.Log ("Read Value: " + readValue);
-
-				int remapVal1 = readValue & 0xF;
-				int remapVal2 = (readValue >> 4) & 0xF;
-				int remapVal3 = (readValue >> 8) & 0xF;
-				/*
-				Debug.Log ( "remapVal1: " + remapVal1 );
-				Debug.Log ( "remapVal2: " + remapVal2 );
-				Debug.Log ( "remapVal3: " + remapVal3 );
-				*/
-
-				if( Mathf.Abs ( remapVal1 - lastVal1 ) >= 5  ){
-					gameController.arduino1 = remapVal1;
-				} 
-				lastVal1 = remapVal1;
-
-				if( Mathf.Abs ( remapVal2 - lastVal2 ) >= 5 ){
-					gameController.arduino2 = remapVal2;
-				} 
-				lastVal2 = remapVal2;
-
-				if( Mathf.Abs ( remapVal3 - lastVal3 ) >= 5 ){
-					gameController.arduino3 = remapVal3;
-				} 
-				lastVal3 = remapVal3;
-				/**
-				if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
-					Debug.Log ( readValue );
-					if( lastReadValue - readValue >=  5){
-						gameController.arduino1 = readValue;
 					}
-					lastReadValue = readValue;
-
-				}
-				else 
-					readValue = lastReadValue;
-				**/
-				/**
-				if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
-					Debug.Log ( readValue );
-					if( lastReadValue - readValue >=  5){
-						gameController.arduino2 = readValue;
+					else 
+						readValue = lastReadValue;
+				} else if( charValue.Contains("B") ){
+					//Debug.Log ("B");
+					//readValue = int.Parse ( sp.ReadLine() );
+					readValue = int.Parse( charValue );
+					if( readValue > 200 && Mathf.Abs( readValue - lastReadValue ) >= 5 ){
+						Debug.Log ( readValue );
+						if( lastReadValue - readValue >=  5){
+							gameController.arduino2 = readValue;
+						}
+						lastReadValue = readValue;
+						
 					}
-					lastReadValue = readValue;
-					
+					else 
+						readValue = lastReadValue;
 				}
-				else 
-					readValue = lastReadValue;
-				**/
 
 			} catch ( System.Exception ){
 				//Debug.Log ( "Error: System Exception Caught" );

@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BirdChildController.cs" />
      <Compile Include="Assets\Scripts\BirdController.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EscapeBallonScript.cs" />
      <Compile Include="Assets\Scripts\changeBackground.cs" />
      <Compile Include="Assets\Scripts\charController.cs" />
