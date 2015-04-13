@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\gameController.cs" />
      <Compile Include="Assets\Scripts\gameController_ZachRainRevision.cs" />
      <Compile Include="Assets\Scripts\inputController.cs" />
-     <Compile Include="Assets\cropScript.cs" />
      <Compile Include="Assets\sunScale.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
