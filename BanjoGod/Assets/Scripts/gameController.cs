@@ -51,9 +51,9 @@ public class gameController : MonoBehaviour {
 	public GameObject SnowSystem;
 	
 	public GameObject DefaultBG;
-	public GameObject LightRainBG;
+	//public GameObject LightRainBG;
 	public GameObject MedRainBG;
-	public GameObject HeavyRainBG;
+	//public GameObject HeavyRainBG;
 	
 	
 	public Material material1;
@@ -64,6 +64,7 @@ public class gameController : MonoBehaviour {
 	Animator anim;
 	
 	bool isWinter;
+	bool hasDefaultFaded;
 
 	public GameObject birdObject;
 
@@ -86,6 +87,7 @@ public class gameController : MonoBehaviour {
 		transisionSpeed = 200;
 		
 		isWinter = false;
+		hasDefaultFaded = false;
 
 		RainSystem.GetComponent<Renderer> ().sortingLayerName = "front";
 		SnowSystem.GetComponent<Renderer> ().sortingLayerName = "front";
@@ -330,22 +332,61 @@ public class gameController : MonoBehaviour {
 		if (buffered)
 			rainLevel--;
 		
-		if (rainLevel < 0)
+		if (rainLevel < 0) {
 			rainLevel = 0;
-		
+
+			MedRainBG.GetComponent<Animator>().SetBool("MedBG_Visible", false);
+			
+			DefaultBG.GetComponent<Animator>().SetBool("Default_BG_Fade", false);
+			hasDefaultFaded = false;
+
+		}
+
 		if ( newInput ) {
 			rainLevel += arduino1;
 			arduino1 = 0;
 		}
 		int rainState = 0;
-		
-		if (rainLevel > 500)
+
+		if (rainLevel > 500) {
 			rainState = 3;
-		else if (rainLevel > 200)
+			if (hasDefaultFaded == false) {
+				
+				DefaultBG.GetComponent<Animator> ().SetBool ("Default_BG_Fade", true);
+				hasDefaultFaded = true;
+				
+			} else {
+				//Do nothing
+			}
+			
+			MedRainBG.GetComponent<Animator> ().SetBool ("MedBG_Visible", true);
+			
+		} else if (rainLevel > 200) {
 			rainState = 2;
-		else if (rainLevel > 0)
+			if (hasDefaultFaded == false) {
+				
+				DefaultBG.GetComponent<Animator> ().SetBool ("Default_BG_Fade", true);
+				hasDefaultFaded = true;
+				
+			} else {
+				//Do nothing
+			}
+			
+			MedRainBG.GetComponent<Animator> ().SetBool ("MedBG_Visible", true);
+			
+		} else if (rainLevel > 0) {
 			rainState = 1;
-		
+			if (hasDefaultFaded == false) {
+				
+				DefaultBG.GetComponent<Animator> ().SetBool ("Default_BG_Fade", true);
+				hasDefaultFaded = true;
+				
+			} else {
+				//Do nothing
+			}
+			
+			MedRainBG.GetComponent<Animator> ().SetBool ("MedBG_Visible", true);
+		}
 		
 		
 		if( buffered && isWinter == false){
