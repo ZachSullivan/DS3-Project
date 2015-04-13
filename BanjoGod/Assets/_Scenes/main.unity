@@ -876,9 +876,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readValue: 0
-  lastReadValue: 0
   cubeObject: {fileID: 0}
   gameController: {fileID: 453239389}
+  lastVal1: 0
+  lastVal2: 0
+  lastVal3: 0
 --- !u!4 &1055147622
 Transform:
   m_ObjectHideFlags: 0

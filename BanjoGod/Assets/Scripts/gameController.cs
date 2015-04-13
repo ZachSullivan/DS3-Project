@@ -10,7 +10,7 @@ public class gameController : MonoBehaviour {
 	 * */
 
 	public int arduino1;
-	public int arduino2; 
+	public float arduino2; 
 	public int arduino3; // Arduino Input Values ( this will come from the inputController file later )
 
 
@@ -26,7 +26,7 @@ public class gameController : MonoBehaviour {
 
 	// Rain and Temperature Levels
 	public int rainLevel;
-	public int windLevel;
+	public float windLevel;
 	public float temperatureLevel;
 
 	// newInput boolean for testing purposes
@@ -243,7 +243,7 @@ public class gameController : MonoBehaviour {
 		Vector3 originalVelocity = RainSystem.GetComponent<ParticleEmitter>().localVelocity;
 		
 		if (buffered) {
-			windLevel--;
+			windLevel -= 0.05f;
 		}
 		
 		if (windLevel < 0) {
@@ -266,6 +266,7 @@ public class gameController : MonoBehaviour {
 			windState = 2;
 		else if (windLevel > 0)
 			windState = 1;
+
 		
 		
 		if(buffered){
@@ -278,21 +279,31 @@ public class gameController : MonoBehaviour {
 				break;
 			case 1:
 				//Debug.Log ("Light Wind");
-				
+				/**
 				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-5, originalVelocity.y, originalVelocity.z);
 				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-1 , originalVelocity.y, originalVelocity.z);
+				**/
+				
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-windLevel*5, originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-windLevel , originalVelocity.y, originalVelocity.z);
 				break;
 			case 2: 
 				//Debug.Log ("Medium Wind");
-				
+				/**
 				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-10, originalVelocity.y, originalVelocity.z);
 				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-1 , originalVelocity.y, originalVelocity.z);
+				**/
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-windLevel*5, originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-windLevel, originalVelocity.y, originalVelocity.z);
 				break;
 			case 3: 
 				//Debug.Log ("Heavy Wind");
-				
+				/**
 				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-20, originalVelocity.y, originalVelocity.z);
 				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-1, originalVelocity.y, originalVelocity.z);
+				**/
+				RainSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-windLevel*5, originalVelocity.y, originalVelocity.z);
+				SnowSystem.GetComponent<ParticleEmitter>().localVelocity = new Vector3(-windLevel, originalVelocity.y, originalVelocity.z);
 				break;
 			default:
 				Debug.Log("Error: no current rain state");

@@ -73,7 +73,7 @@ public class inputController : MonoBehaviour {
 			gameController.arduino1 = 200;
 		}
 		if (Input.GetKeyDown (KeyCode.W)) {
-			gameController.arduino2 = 50;
+			gameController.arduino2 = 0.1f;
 		}
 		if (Input.GetKeyDown (KeyCode.E)) {
 			gameController.arduino3 = 200;
