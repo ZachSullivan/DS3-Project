@@ -5,8 +5,8 @@ public class gameController : MonoBehaviour {
 
 
 	public int arduino1;
-	public int arduino2; 
-	public int arduino3; // Arduino Input Values ( this will come from the inputController file later )
+	public float arduino2; 
+	public float arduino3; // Arduino Input Values ( this will come from the inputController file later )
 
 
 	// Event Driven System /// <Event Delegates and associated variables>
@@ -26,8 +26,9 @@ public class gameController : MonoBehaviour {
 
 	// Rain and Temperature Levels
 	public int rainLevel;
-	public int windLevel;
+	public float windLevel;
 	public float temperatureLevel;
+	public int tempBoost = 0;
 
 	// newInput boolean for testing purposes
 	public bool newInput = false;
@@ -119,6 +120,8 @@ public class gameController : MonoBehaviour {
 			newInput = true;
 		if (arduino2 > 0)
 			newInput = true;
+		if (arduino3 > 0)
+			newInput = true;
 
 		if (decrementBuffer == 0)
 			buffered = true;
@@ -134,7 +137,7 @@ public class gameController : MonoBehaviour {
 
 		// Buffer Management
 		if( buffered )
-			decrementBuffer = 59;
+			decrementBuffer = 60;
 		else 
 			decrementBuffer--;
 
@@ -142,7 +145,7 @@ public class gameController : MonoBehaviour {
 			newInput = false;
 
 
-		if (crops == true && windLevel >= 500) {
+		if (crops == true && windLevel >= 5) {
 			Instantiate (birdObject, new Vector3( 10, 0 ,(float) Random.Range(0,4)), Quaternion.identity );
 			bird = true;
 			windLevel -= 50;
@@ -181,7 +184,9 @@ public class gameController : MonoBehaviour {
 	void temperatureUpdate(bool buffered){
 		// Temerature State Machine
 		int period = 60 * 60;
-		
+
+
+
 		if (timeIndex == (60 * 60) )
 			timeIndex = 0;
 		else
@@ -190,27 +195,32 @@ public class gameController : MonoBehaviour {
 		if( buffered ){
 			amplitude--;
 			
-			if (amplitude < 30)
-				amplitude = 30;
+			if (amplitude < 20)
+				amplitude = 20;
 			
 			if (amplitude < targetAmplitude) {
 				amplitude += 2;
 			} else {
-				targetAmplitude = 0;
+				targetAmplitude = 15;
 			}
+
+			tempBoost--;
+			if (tempBoost < 0)
+				tempBoost = 0;
 		}
 		
-		
-		if (newInput) {
-			targetAmplitude = arduino3;
-			arduino3 = 0;
-		}
-		
+
 		
 		// Temperature is a sinosodal relationship. User effects Amplitude of wave
 		temperatureLevel = amplitude * Mathf.Sin ( ( 2 * Mathf.PI / Mathf.Abs(period) ) * ( timeIndex ));
-		
-		if (temperatureLevel <= -0) {
+		temperatureLevel += tempBoost;
+
+		if (newInput) {
+			tempBoost += (int) arduino3;
+			arduino3 = 0;
+		}
+
+		if (temperatureLevel <= -5) {
 			
 			isWinter = true;
 			
@@ -260,7 +270,7 @@ public class gameController : MonoBehaviour {
 		Vector3 originalVelocity = RainSystem.GetComponent<ParticleEmitter>().localVelocity;
 		
 		if (buffered) {
-			windLevel--;
+			windLevel -= 0.01f;
 		}
 		
 		if (windLevel < 0) {

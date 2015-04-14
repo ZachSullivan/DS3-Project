@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scripts\inputController.cs" />
      <Compile Include="Assets\Scripts\sortingScript.cs" />
      <Compile Include="Assets\Scripts\sunScale.cs" />
+     <Compile Include="Assets\cloudController.cs" />
+     <Compile Include="Assets\terrainSwitcher.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
