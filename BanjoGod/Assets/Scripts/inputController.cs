@@ -73,10 +73,10 @@ public class inputController : MonoBehaviour {
 			gameController.arduino1 = 200;
 		}
 		if (Input.GetKeyDown (KeyCode.W)) {
-			gameController.arduino2 = 0.05f;
+			gameController.arduino2 = 50;
 		}
 		if (Input.GetKeyDown (KeyCode.E)) {
-			gameController.arduino3 = 1.0f;
+			gameController.arduino3 = 200;
 		}
 	}
 	void createCube( int numCubes ){

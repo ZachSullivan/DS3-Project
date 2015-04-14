@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\BirdController.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EscapeBallonScript.cs" />
+     <Compile Include="Assets\Scripts\IntroController.cs" />
      <Compile Include="Assets\Scripts\changeBackground.cs" />
      <Compile Include="Assets\Scripts\charController.cs" />
      <Compile Include="Assets\Scripts\gameController.cs" />
@@ -57,8 +58,6 @@
      <Compile Include="Assets\Scripts\inputController.cs" />
      <Compile Include="Assets\Scripts\sortingScript.cs" />
      <Compile Include="Assets\Scripts\sunScale.cs" />
-     <Compile Include="Assets\cloudController.cs" />
-     <Compile Include="Assets\terrainSwitcher.cs" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
