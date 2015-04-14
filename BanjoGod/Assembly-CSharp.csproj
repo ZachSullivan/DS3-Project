@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EscapeBallonScript.cs" />
      <Compile Include="Assets\Scripts\IntroController.cs" />
+     <Compile Include="Assets\Scripts\Lightning.cs" />
      <Compile Include="Assets\Scripts\changeBackground.cs" />
      <Compile Include="Assets\Scripts\charController.cs" />
      <Compile Include="Assets\Scripts\gameController.cs" />
