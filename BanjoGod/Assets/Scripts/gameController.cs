@@ -3,17 +3,15 @@ using System.Collections;
 
 public class gameController : MonoBehaviour {
 
-	/**
-	 * 
-	 * 
-	 * 
-	 * */
 
 	public int arduino1;
 	public int arduino2; 
 	public int arduino3; // Arduino Input Values ( this will come from the inputController file later )
 
 
+	// Event Driven System /// <Event Delegates and associated variables>
+	/// Occurs as the player successfully triggers collection parameter.
+	/// </summary>
 	public delegate void CollectionEvent();
 	public static event CollectionEvent balloonEvent;
 	public static event CollectionEvent featherEvent;
@@ -23,6 +21,8 @@ public class gameController : MonoBehaviour {
 	public bool balloon, feather, generator;
 
 	public bool bird, crops, lightning;
+	/// //////////////////////////////////////////////////////////////
+
 
 	// Rain and Temperature Levels
 	public int rainLevel;
@@ -51,22 +51,28 @@ public class gameController : MonoBehaviour {
 	public GameObject SnowSystem;
 	
 	public GameObject DefaultBG;
-	//public GameObject LightRainBG;
 	public GameObject MedRainBG;
-	//public GameObject HeavyRainBG;
-	
-	
+
+	/** Outdated?
 	public Material material1;
 	public Material material2;
-	
+	**/
+
+	//GameObject references
 	public GameObject cropsObject;
-	
+	public GameObject charObject;
+	public GameObject intro;
+	public GameObject birdObject;
+
+	//Primary Animator
 	Animator anim;
-	
+
+	//bool gates
 	bool isWinter;
 	bool hasDefaultFaded;
+	
+	public int timePassed = 0;
 
-	public GameObject birdObject;
 
 	//Old rain emission system
 	//public ParticleSystem rainSystem;
@@ -91,12 +97,21 @@ public class gameController : MonoBehaviour {
 
 		RainSystem.GetComponent<Renderer> ().sortingLayerName = "front";
 		SnowSystem.GetComponent<Renderer> ().sortingLayerName = "front";
+
+		charObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
 		bool buffered;
+
+		timePassed += (int) ( Time.time - timePassed );
+
+		if (timePassed >= 10) {
+			charObject.SetActive (true);
+			intro.SetActive( false );
+		}
 
 		if (arduino1 > 0)
 			newInput = true;
@@ -305,19 +320,6 @@ public class gameController : MonoBehaviour {
 
 	void rainUpdate(bool buffered){
 		// Rain State Machine
-		
-		
-		
-		/*int numP = particleSystem.particleCount;
-		ParticleSystem.Particle[] particles = new ParticleSystem.Particle[numP];
-		particleSystem.GetParticles (particles);
-
-		for(int i = 0; i < particles.Length; i++){
-			particles[i].velocity = new Vector3 (windLevel, 0, 0);
-
-		}*/
-		//rainEmmitter.localVelocity = new Vector3 (windLevel, 0, 0);
-		
 		if (buffered)
 			rainLevel--;
 		

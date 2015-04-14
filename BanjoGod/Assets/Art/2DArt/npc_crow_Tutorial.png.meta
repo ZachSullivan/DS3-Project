@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: f7a3fd8672c9549efb83f66fac9974de
+timeCreated: 1429025318
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: npc_crow_Tutorial_0
+    21300002: npc_crow_Tutorial_1
+    21300004: npc_crow_Tutorial_2
+    21300006: npc_crow_Tutorial_3
+    21300008: npc_crow_Tutorial_4
+    21300010: npc_crow_Tutorial_5
+    21300012: npc_crow_Tutorial_6
+    21300014: npc_crow_Tutorial_7
+    21300016: npc_crow_Tutorial_8
+    21300018: npc_crow_Tutorial_9
+    21300020: npc_crow_Tutorial_10
+    21300022: npc_crow_Tutorial_11
+    21300024: npc_crow_Tutorial_12
+    21300026: npc_crow_Tutorial_13
+    21300028: npc_crow_Tutorial_14
+    21300030: npc_crow_Tutorial_15
+    21300032: npc_crow_Tutorial_16
+    21300034: npc_crow_Tutorial_17
+    21300036: npc_crow_Tutorial_18
+    21300038: npc_crow_Tutorial_19
+    21300040: npc_crow_Tutorial_20
+    21300042: npc_crow_Tutorial_21
+    21300044: npc_crow_Tutorial_22
+    21300046: npc_crow_Tutorial_23
+    21300048: npc_crow_Tutorial_24
+    21300050: npc_crow_Tutorial_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: npc_crow_Tutorial_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 899
+        width: 183
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_1
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 899
+        width: 186
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_2
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 899
+        width: 184
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_3
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 900
+        width: 186
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_4
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 900
+        width: 187
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_5
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 900
+        width: 186
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_6
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 900
+        width: 185
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_7
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 900
+        width: 186
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_8
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 901
+        width: 182
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_9
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 600
+        width: 183
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_10
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 600
+        width: 186
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_11
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 600
+        width: 187
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_12
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 600
+        width: 190
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_13
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 600
+        width: 190
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_14
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 600
+        width: 191
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_15
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 600
+        width: 194
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_16
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 600
+        width: 186
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_17
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 601
+        width: 182
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_18
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 300
+        width: 183
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_19
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 300
+        width: 191
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_20
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 300
+        width: 199
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_21
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 300
+        width: 200
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_22
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 207
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_23
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 0
+        width: 202
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_24
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 0
+        width: 200
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: npc_crow_Tutorial_25
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 0
+        width: 191
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
