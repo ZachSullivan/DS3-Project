@@ -48,12 +48,6 @@ public class Lightning : MonoBehaviour {
 			LightningLight.intensity = 0;
 		}
 
-		if (flash == false){
-			if (LightningLight.intensity ==  0){
-				LightningLight.intensity = 8;
-			}
-		}
-
 	}
 
 }
