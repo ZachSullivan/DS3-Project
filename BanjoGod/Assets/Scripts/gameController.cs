@@ -106,14 +106,12 @@ public class gameController : MonoBehaviour {
 	void FixedUpdate () {
 
 		bool buffered;
+
 		timePassed += (int) ( Time.time - timePassed );
 
 		if (timePassed >= 10) {
-			intro.SetActive( false );
-		}
-
-		if (timePassed >= 14) {
 			charObject.SetActive (true);
+			intro.SetActive( false );
 		}
 
 		if (arduino1 > 0)
