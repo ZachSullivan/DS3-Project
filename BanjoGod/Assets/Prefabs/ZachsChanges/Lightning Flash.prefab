@@ -1,50 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &115902
+--- !u!1 &161790
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 415902}
-  - 108: {fileID: 10815902}
+  - 4: {fileID: 419578}
+  - 108: {fileID: 10862068}
+  - 114: {fileID: 11446248}
   m_Layer: 0
-  m_Name: targetNode
+  m_Name: Lightning Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &415902
+--- !u!4 &419578
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 0, y: .349999905, z: -2.50571322}
-=======
-  m_LocalPosition: {x: 1, y: .349999905, z: -2.52178001}
->>>>>>> origin/post_beta_TylerBranch
+  m_GameObject: {fileID: 161790}
+  m_LocalRotation: {x: .700225353, y: .0984102711, z: -.0984102562, w: .700225234}
+  m_LocalPosition: {x: .170000002, y: 8.09000015, z: -.150000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!108 &10815902
+--- !u!108 &10862068
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 115902}
-  m_Enabled: 0
+  m_GameObject: {fileID: 161790}
+  m_Enabled: 1
   serializedVersion: 6
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
-  m_Intensity: 2
-  m_Range: .5
-  m_SpotAngle: 30
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0
+  m_Range: 21.6265182
+  m_SpotAngle: 85.2487564
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -59,11 +56,25 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
-  m_BounceIntensity: 1
+  m_Lightmapping: 4
+  m_BounceIntensity: 8
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11446248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214ac02e82d1149d7951889d048e72a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightningLight: {fileID: 10862068}
+  flash: 0
+  fadeOffSpeed: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -73,5 +84,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 115902}
+  m_RootGameObject: {fileID: 161790}
   m_IsPrefabParent: 1

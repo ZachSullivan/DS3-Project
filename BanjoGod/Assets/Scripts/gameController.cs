@@ -53,6 +53,9 @@ public class gameController : MonoBehaviour {
 	public GameObject DefaultBG;
 	public GameObject MedRainBG;
 
+	public GameObject SummerIsland;
+	public GameObject WinterIsland;
+
 	/** Outdated?
 	public Material material1;
 	public Material material2;
@@ -98,6 +101,8 @@ public class gameController : MonoBehaviour {
 		RainSystem.GetComponent<Renderer> ().sortingLayerName = "front";
 		SnowSystem.GetComponent<Renderer> ().sortingLayerName = "front";
 
+		WinterIsland.GetComponent<SpriteRenderer>().enabled = false;
+
 		charObject.SetActive (false);
 	}
 	
@@ -105,12 +110,18 @@ public class gameController : MonoBehaviour {
 	void FixedUpdate () {
 
 		bool buffered;
-
 		timePassed += (int) ( Time.time - timePassed );
 
 		if (timePassed >= 10) {
-			charObject.SetActive (true);
 			intro.SetActive( false );
+		}
+
+<<<<<<< HEAD
+		if (timePassed >= 11) {
+=======
+		if (timePassed >= 14) {
+>>>>>>> origin/post_beta_TylerBranch
+			charObject.SetActive (true);
 		}
 
 		if (arduino1 > 0)
@@ -176,6 +187,30 @@ public class gameController : MonoBehaviour {
 		}
 	}
 
+	IEnumerator islandTransition(){
+
+
+		SummerIsland.GetComponent<Animator>().SetBool("IsWinter", true);
+		
+		WinterIsland.GetComponent<Animator>().SetBool("isWinter", true);
+
+		yield return new WaitForSeconds (1.0f);
+
+		WinterIsland.GetComponent<SpriteRenderer>().enabled = true;
+	}
+
+	IEnumerator snowIslandTransition(){
+		
+		
+		SummerIsland.GetComponent<Animator>().SetBool("IsWinter", false);
+		
+		WinterIsland.GetComponent<Animator>().SetBool("isWinter", false);
+		
+		yield return new WaitForSeconds (3.0f);
+		
+		WinterIsland.GetComponent<SpriteRenderer>().enabled = false;
+	}
+
 	void temperatureUpdate(bool buffered){
 		// Temerature State Machine
 		int period = 60 * 60;
@@ -211,7 +246,15 @@ public class gameController : MonoBehaviour {
 		if (temperatureLevel <= -0) {
 			
 			isWinter = true;
+
+			/*WinterIsland.GetComponent<SpriteRenderer>().enabled = true;
+			SummerIsland.GetComponent<Animator>().SetBool("IsWinter", true);
 			
+			WinterIsland.GetComponent<Animator>().SetBool("isWinter", true);*/
+			//hasDefaultFaded = false;
+
+			StartCoroutine(islandTransition());
+
 			//SnowSystem.SetActive(true);
 			if(SnowSystem.GetComponent<ParticleEmitter>().maxEmission < rainLevel){
 				SnowSystem.GetComponent<ParticleEmitter>().maxEmission += Time.deltaTime * transisionSpeed;
@@ -230,6 +273,13 @@ public class gameController : MonoBehaviour {
 		
 		if (temperatureLevel >= 1) {
 			//SnowSystem.SetActive(true);
+
+			StartCoroutine(snowIslandTransition());
+
+			/*SummerIsland.GetComponent<Animator>().SetBool("IsWinter", false);
+			
+			WinterIsland.GetComponent<Animator>().SetBool("isWinter", false);*/
+
 			if(RainSystem.GetComponent<ParticleEmitter>().maxEmission < rainLevel){
 				RainSystem.GetComponent<ParticleEmitter>().maxEmission += Time.deltaTime * transisionSpeed;
 				SpitSystem.GetComponent<ParticleEmitter>().maxEmission -= Time.deltaTime * transisionSpeed;
