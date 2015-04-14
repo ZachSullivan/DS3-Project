@@ -116,11 +116,7 @@ public class gameController : MonoBehaviour {
 			intro.SetActive( false );
 		}
 
-<<<<<<< HEAD
 		if (timePassed >= 11) {
-=======
-		if (timePassed >= 14) {
->>>>>>> origin/post_beta_TylerBranch
 			charObject.SetActive (true);
 		}
 
